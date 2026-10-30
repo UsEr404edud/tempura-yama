@@ -1,5 +1,9 @@
 # 🍤 Tempura Yama — Totem PWA de pedidos
 
+[![Repositório](https://img.shields.io/badge/GitHub-UsEr404edud%2Ftempura--yama-16202b?logo=github)](https://github.com/UsEr404edud/tempura-yama)
+[![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-d94f2b)](LICENSE)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/UsEr404edud/tempura-yama)
+
 Totem de autoatendimento para uma tempuraria artesanal. O cliente navega pelo cardápio,
 monta o pedido, informa a mesa e acompanha o preparo em tempo real. A cozinha usa um painel
 protegido por PIN para avançar o status dos pedidos e marcar itens esgotados.
@@ -108,7 +112,7 @@ src/db.js → PostgreSQL (DATABASE_URL) ou SQLite (DATA_DIR)
 Pré-requisito: **Node.js 22.13 ou superior** (por causa do módulo nativo `node:sqlite`).
 
 ```bash
-git clone https://github.com/SEU-USUARIO/tempura-yama.git
+git clone https://github.com/UsEr404edud/tempura-yama.git
 cd tempura-yama
 npm ci
 npm start
@@ -238,11 +242,12 @@ Para testar a instalação: abra o site em `localhost` ou em HTTPS, use o menu d
 
 ### 1. Suba o código para o GitHub
 
-O repositório local já está inicializado na branch `main` com o primeiro commit. Crie um
-repositório vazio no GitHub (sem README, sem `.gitignore`) e envie:
+O projeto já está publicado em
+[github.com/UsEr404edud/tempura-yama](https://github.com/UsEr404edud/tempura-yama).
+Para uma cópia própria, crie um repositório vazio no GitHub e envie:
 
 ```bash
-git remote add origin https://github.com/SEU-USUARIO/tempura-yama.git
+git remote set-url origin https://github.com/SEU-USUARIO/tempura-yama.git
 git push -u origin main
 ```
 
@@ -251,13 +256,16 @@ git push -u origin main
 
 ### 2. Deploy com Blueprint (recomendado)
 
-1. No [dashboard do Render](https://dashboard.render.com), clique em **New + → Blueprint**.
-2. Conecte sua conta do GitHub e selecione o repositório.
+O caminho mais rápido é o botão **Deploy to Render** no topo do README ou o link
+<https://render.com/deploy?repo=https://github.com/UsEr404edud/tempura-yama>.
+
+1. Faça login no [Render](https://dashboard.render.com) com sua conta do GitHub.
+2. Autorize o Render a acessar o repositório e clique em **Apply**.
 3. O Render lê o `render.yaml` e cria:
    - o **Web Service** `tempura-yama` (Node, plano free);
    - o **PostgreSQL** `tempura-db` (plano free);
    - a variável `DATABASE_URL` já conectada ao banco.
-4. Clique em **Apply** e aguarde o build (`npm ci` → `npm start`).
+4. Aguarde o build (`npm ci` → `npm start`).
 5. Acesse a URL `https://tempura-yama.onrender.com` (o nome pode variar).
 6. Troque o `ADMIN_PIN` em **Environment** e faça um novo deploy.
 
