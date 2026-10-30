@@ -238,14 +238,16 @@ Para testar a instalação: abra o site em `localhost` ou em HTTPS, use o menu d
 
 ### 1. Suba o código para o GitHub
 
+O repositório local já está inicializado na branch `main` com o primeiro commit. Crie um
+repositório vazio no GitHub (sem README, sem `.gitignore`) e envie:
+
 ```bash
-git init
-git add .
-git commit -m "feat: totem PWA Tempura Yama com API, banco e painel"
-git branch -M main
 git remote add origin https://github.com/SEU-USUARIO/tempura-yama.git
 git push -u origin main
 ```
+
+> Se preferir começar do zero em outra pasta: `git init && git add . &&
+> git commit -m "feat: totem PWA Tempura Yama" && git branch -M main`.
 
 ### 2. Deploy com Blueprint (recomendado)
 
