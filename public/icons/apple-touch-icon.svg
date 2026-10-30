@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 512 512" role="img" aria-label="Tempura Yama">
+  <rect width="512" height="512" fill="#16202b" />
+  <circle cx="256" cy="256" r="176" fill="#f2b544" />
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#16202b" stroke-width="5" stroke-dasharray="9 13" opacity=".5" />
+  <circle cx="356" cy="146" r="30" fill="#d94f2b" />
+  <path d="M170 306c10-72 72-120 140-120 61 0 105 31 105 76 0 37-29 65-66 65-35 0-60-23-60-53 0-27 22-48 49-48" fill="none" stroke="#16202b" stroke-width="30" stroke-linecap="round" />
+  <g fill="#ffe6ad">
+    <circle cx="205" cy="230" r="7" />
+    <circle cx="249" cy="203" r="7" />
+    <circle cx="304" cy="198" r="7" />
+    <circle cx="356" cy="218" r="7" />
+    <circle cx="392" cy="257" r="7" />
+    <circle cx="400" cy="302" r="7" />
+    <circle cx="371" cy="331" r="7" />
+  </g>
+</svg>

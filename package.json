@@ -1,0 +1,29 @@
+{
+  "name": "tempura-yama",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Totem de autoatendimento PWA da Tempuraria Yama — Express, banco de dados e API.",
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --watch --disable-warning=ExperimentalWarning server.js",
+    "test": "node --test --disable-warning=ExperimentalWarning"
+  },
+  "keywords": [
+    "pwa",
+    "totem",
+    "tempura",
+    "express",
+    "sqlite",
+    "postgres"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.22.3",
+    "pg": "^8.23.1"
+  }
+}

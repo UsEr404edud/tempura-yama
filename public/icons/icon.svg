@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Tempura Yama">
+  <defs>
+    <radialGradient id="gold" cx="35%" cy="28%" r="80%">
+      <stop offset="0%" stop-color="#ffe2a1" />
+      <stop offset="58%" stop-color="#f2b544" />
+      <stop offset="100%" stop-color="#e09a1f" />
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="#d94f2b" stop-opacity="0" />
+      <stop offset="100%" stop-color="#d94f2b" stop-opacity=".18" />
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity=".28" />
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="#16202b" />
+  <circle cx="256" cy="256" r="256" fill="url(#glow)" />
+
+  <g filter="url(#soft)">
+    <circle cx="256" cy="256" r="176" fill="url(#gold)" />
+    <circle cx="256" cy="256" r="150" fill="none" stroke="#16202b" stroke-width="5" stroke-dasharray="9 13" opacity=".5" />
+    <circle cx="356" cy="146" r="30" fill="#d94f2b" />
+  </g>
+
+  <g fill="none" stroke="#16202b" stroke-width="30" stroke-linecap="round">
+    <path d="M170 306c10-72 72-120 140-120 61 0 105 31 105 76 0 37-29 65-66 65-35 0-60-23-60-53 0-27 22-48 49-48" />
+  </g>
+
+  <g fill="#ffe6ad">
+    <circle cx="205" cy="230" r="7" />
+    <circle cx="249" cy="203" r="7" />
+    <circle cx="304" cy="198" r="7" />
+    <circle cx="356" cy="218" r="7" />
+    <circle cx="392" cy="257" r="7" />
+    <circle cx="400" cy="302" r="7" />
+    <circle cx="371" cy="331" r="7" />
+  </g>
+
+  <g fill="#16202b" opacity=".85">
+    <circle cx="164" cy="332" r="8" />
+    <circle cx="158" cy="364" r="5" />
+    <circle cx="418" cy="190" r="5" />
+  </g>
+</svg>

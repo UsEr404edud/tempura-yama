@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Tempura Yama — Totem de pedidos</title>
+    <meta
+      name="description"
+      content="Totem de autoatendimento da Tempuraria Yama: monte seu pedido de tempurá, escolha a mesa e acompanhe o preparo em tempo real."
+    />
+    <meta name="theme-color" content="#16202b" />
+    <meta name="color-scheme" content="light" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Tempura Yama" />
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tempura Yama — Totem de pedidos" />
+    <meta
+      property="og:description"
+      content="Tempurás fritos na hora. Peça pelo totem e acompanhe o preparo em tempo real."
+    />
+    <meta property="og:image" content="/icons/icon-512.png" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+    <svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="i-cart" viewBox="0 0 24 24">
+        <path d="M3 4h2.2l2.3 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 8H6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="10" cy="20" r="1.4" fill="currentColor"/>
+        <circle cx="18" cy="20" r="1.4" fill="currentColor"/>
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24">
+        <path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="m5 13 4 4L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24">
+        <rect x="3.5" y="3.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="13.5" y="3.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="3.5" y="13.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="13.5" y="13.5" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      </symbol>
+      <symbol id="i-receipt" viewBox="0 0 24 24">
+        <path d="M6 3.5h12v17l-3-2-3 2-3-2-3 2v-17Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M9 8h6M9 12h6M9 16h3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-panel" viewBox="0 0 24 24">
+        <rect x="3.5" y="4.5" width="17" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M3.5 9.5h17M9 9.5v10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      </symbol>
+      <symbol id="i-download" viewBox="0 0 24 24">
+        <path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24">
+        <path d="M5 7h14M9 7V5h6v2m-8 0 1 13h8l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-offline" viewBox="0 0 24 24">
+        <path d="M3 3l18 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M8.5 15.5a5 5 0 0 1 7 0M5.5 12.3a10 10 0 0 1 4-2.2m5 .3a10 10 0 0 1 4 1.9M2.6 9a14 14 0 0 1 4-2.2m6.6-.7a14 14 0 0 1 8.2 3M12 19h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24">
+        <path d="M20 11a8 8 0 1 0-2.3 6.2M20 5v6h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24">
+        <path d="M6 9a6 6 0 0 1 12 0c0 4 1.5 5.5 1.5 5.5h-15S6 13 6 9Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        <path d="M10 18a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24">
+        <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-flame" viewBox="0 0 24 24">
+        <path d="M12 3s5 4.2 5 9a5 5 0 0 1-10 0c0-2 1-3.4 2.2-4.7C10.4 8.6 12 7 12 3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        <path d="M12 20a2.6 2.6 0 0 0 2.6-2.6c0-1.7-1.5-2.7-2.6-4.4-1.1 1.7-2.6 2.7-2.6 4.4A2.6 2.6 0 0 0 12 20Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      </symbol>
+    </svg>
+
+    <div class="offline-banner" id="offline-banner" role="status" hidden>
+      <svg class="icon" aria-hidden="true"><use href="#i-offline"></use></svg>
+      <span>Você está offline. O cardápio continua disponível, mas novos pedidos precisam de conexão.</span>
+    </div>
+
+    <header class="topbar" id="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="#/" aria-label="Tempura Yama — início">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img">
+              <circle cx="24" cy="24" r="22" fill="#f2b544" />
+              <circle cx="24" cy="24" r="15.5" fill="none" stroke="#16202b" stroke-width="1.4" stroke-dasharray="2.5 3.2" />
+              <path d="M15 28c1.8-7.4 9.5-11 15.4-7.4 3.1 1.9 3.4 6 .6 8.2-2.4 1.9-6 1.3-6.8-1.4-.7-2.3 1.5-4.1 3.5-3.2" fill="none" stroke="#16202b" stroke-width="3.4" stroke-linecap="round" />
+              <circle cx="18.5" cy="20.5" r="1.1" fill="#16202b" />
+              <circle cx="27.5" cy="17.8" r="1.1" fill="#16202b" />
+              <circle cx="33.5" cy="23" r="1.1" fill="#16202b" />
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-name">Tempura <em>Yama</em></span>
+            <span class="brand-tag">tempuraria artesanal</span>
+          </span>
+        </a>
+
+        <nav class="topnav" aria-label="Navegação principal">
+          <a class="topnav-link" href="#/" data-nav="menu">Cardápio</a>
+          <a class="topnav-link" href="#/pedido" data-nav="track">Meu pedido</a>
+          <a class="topnav-link" href="#/admin" data-nav="admin">Painel</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <button class="install-btn" id="install-button" type="button" hidden>
+            <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+            <span>Instalar app</span>
+          </button>
+          <button class="cart-fab" id="top-cart-button" type="button" aria-label="Abrir meu pedido">
+            <svg class="icon" aria-hidden="true"><use href="#i-cart"></use></svg>
+            <span class="cart-fab-count" id="cart-count" data-empty="true">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <!-- ============ CARDÁPIO ============ -->
+      <section class="view" id="view-menu">
+        <div class="container">
+          <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+              <p class="eyebrow"><span class="eyebrow-dot"></span> DESDE 2014 · PINHEIROS, SÃO PAULO</p>
+              <h1 id="hero-title">Casquinha leve,<br /><em>alma japonesa.</em></h1>
+              <p class="hero-desc">
+                Tempurás fritos na hora, um a um. Monte seu pedido no totem e acompanhe o preparo
+                em tempo real.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#cardapio" id="hero-cta">
+                  Ver cardápio
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                </a>
+                <span class="open-pill"><i class="live-dot"></i> Aberto até 23h30</span>
+              </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="hero-disc">
+                <span class="hero-emoji">🍤</span>
+                <span class="steam steam-a"></span>
+                <span class="steam steam-b"></span>
+                <span class="steam steam-c"></span>
+              </div>
+              <div class="stamp">
+                <span>FRITO</span>
+                <span>NA HORA</span>
+              </div>
+              <span class="hero-chip chip-a">🥢 12 peças</span>
+              <span class="hero-chip chip-b">✓ crocante</span>
+            </div>
+          </section>
+
+          <section class="featured" id="featured-section" aria-labelledby="featured-title" hidden>
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">ESCOLHAS DA CASA</p>
+                <h2 id="featured-title">Destaques do chef</h2>
+              </div>
+              <span class="section-note">toque para adicionar</span>
+            </div>
+            <div class="featured-rail" id="featured-rail"></div>
+          </section>
+
+          <div class="menu-sticky" id="menu-sticky">
+            <nav class="chips" id="category-chips" aria-label="Categorias do cardápio"></nav>
+          </div>
+
+          <div id="menu-sections" class="menu-sections" aria-live="polite">
+            <div class="menu-loading" id="menu-loading">
+              <span class="spinner" aria-hidden="true"></span>
+              <p>Preparando o cardápio…</p>
+            </div>
+          </div>
+
+          <section class="info-strip" id="cardapio-info" aria-label="Informações da casa">
+            <div class="info-item">
+              <span class="info-icon">📍</span>
+              <div><strong>Onde estamos</strong><p>Rua dos Pinheiros, 482 — São Paulo/SP</p></div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">🕒</span>
+              <div><strong>Horário</strong><p>Ter a dom · 18h às 23h30</p></div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">♿</span>
+              <div><strong>Acessibilidade</strong><p>Totem com altura adaptada e leitor de tela</p></div>
+            </div>
+          </section>
+        </div>
+
+        <footer class="site-footer">
+          <div class="container footer-inner">
+            <div class="footer-brand">
+              <span class="brand-name">Tempura <em>Yama</em></span>
+              <p>Tempuraria artesanal em Pinheiros. Massa leve, ingredientes frescos e fritura na hora.</p>
+            </div>
+            <div class="footer-links">
+              <a href="#/pedido">Acompanhar pedido</a>
+              <a href="#/admin">Painel da cozinha</a>
+              <button type="button" id="install-footer" class="link-button">Instalar aplicativo</button>
+            </div>
+            <p class="footer-credit">
+              PWA desenvolvida para o totem de autoatendimento · <span id="footer-year">2026</span>
+            </p>
+          </div>
+        </footer>
+      </section>
+
+      <!-- ============ ACOMPANHAR PEDIDO ============ -->
+      <section class="view page" id="view-track" hidden>
+        <div class="container narrow">
+          <header class="page-head">
+            <p class="eyebrow">ACOMPANHAMENTO</p>
+            <h1>Seu pedido,<br /><em>em tempo real.</em></h1>
+            <p class="page-sub">
+              Digite o código impresso no comprovante ou abra o último pedido feito neste
+              dispositivo.
+            </p>
+          </header>
+
+          <form class="lookup" id="lookup-form" novalidate>
+            <label for="lookup-code">Código do pedido</label>
+            <div class="lookup-row">
+              <input
+                id="lookup-code"
+                name="code"
+                type="text"
+                inputmode="text"
+                autocomplete="off"
+                autocapitalize="characters"
+                maxlength="8"
+                placeholder="Ex.: 7K2M"
+                aria-describedby="lookup-help"
+              />
+              <button class="btn btn-primary" type="submit">Acompanhar</button>
+            </div>
+            <p class="field-hint" id="lookup-help">São 4 caracteres, sem espaços.</p>
+          </form>
+
+          <div id="track-content" class="track-content" aria-live="polite"></div>
+
+          <section class="recent" id="recent-section" hidden>
+            <h2>Neste dispositivo</h2>
+            <div id="recent-orders" class="recent-list"></div>
+          </section>
+
+          <div class="track-cta">
+            <p>Quer pedir mais uma porção?</p>
+            <a class="btn btn-ghost" href="#/">Voltar ao cardápio</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PAINEL / COZINHA ============ -->
+      <section class="view page" id="view-admin" hidden>
+        <div class="container">
+          <div id="admin-content"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Barra flutuante do pedido -->
+    <div class="cart-bar-wrap" id="cart-bar-wrap" hidden>
+      <button class="cart-bar" id="cart-bar" type="button" aria-label="Ver meu pedido">
+        <span class="cart-bar-icon">
+          <svg class="icon" aria-hidden="true"><use href="#i-cart"></use></svg>
+          <span class="cart-bar-count" id="cart-bar-count">0</span>
+        </span>
+        <span class="cart-bar-text">
+          <small>Seu pedido</small>
+          <strong id="cart-bar-total">R$ 0,00</strong>
+        </span>
+        <span class="cart-bar-cta">Ver pedido <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span>
+      </button>
+    </div>
+
+    <!-- Navegação inferior -->
+    <nav class="tabbar" aria-label="Navegação do aplicativo">
+      <a class="tabbar-link" href="#/" data-nav="menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-grid"></use></svg>
+        <span>Cardápio</span>
+      </a>
+      <a class="tabbar-link" href="#/pedido" data-nav="track">
+        <svg class="icon" aria-hidden="true"><use href="#i-receipt"></use></svg>
+        <span>Pedido</span>
+      </a>
+      <a class="tabbar-link" href="#/admin" data-nav="admin">
+        <svg class="icon" aria-hidden="true"><use href="#i-panel"></use></svg>
+        <span>Painel</span>
+      </a>
+    </nav>
+
+    <!-- Detalhe do item -->
+    <dialog class="sheet item-sheet" id="item-dialog" aria-labelledby="item-dialog-title">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <button class="sheet-close icon-button" type="button" data-close-dialog="item-dialog" aria-label="Fechar detalhes">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
+      <div class="item-dialog-body" id="item-dialog-body"></div>
+    </dialog>
+
+    <!-- Carrinho / checkout -->
+    <dialog class="sheet cart-sheet" id="cart-dialog" aria-labelledby="cart-title">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <header class="sheet-head">
+        <div>
+          <p class="eyebrow" id="cart-eyebrow">SEU PEDIDO</p>
+          <h2 id="cart-title">Carrinho</h2>
+        </div>
+        <button class="sheet-close icon-button" type="button" data-close-dialog="cart-dialog" aria-label="Fechar pedido">
+          <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+        </button>
+      </header>
+      <div class="sheet-scroll" id="cart-body"></div>
+      <footer class="sheet-foot" id="cart-foot"></footer>
+    </dialog>
+
+    <!-- Instalação no iOS -->
+    <dialog class="modal" id="install-dialog" aria-labelledby="install-title">
+      <div class="modal-body">
+        <span class="modal-emoji" aria-hidden="true">📲</span>
+        <h2 id="install-title">Instale o totem no seu celular</h2>
+        <ol class="install-steps">
+          <li>Toque no botão <strong>Compartilhar</strong> do Safari.</li>
+          <li>Escolha <strong>Adicionar à Tela de Início</strong>.</li>
+          <li>Confirme em <strong>Adicionar</strong>.</li>
+        </ol>
+        <p class="muted">No Android, use o menu do Chrome → “Instalar aplicativo”.</p>
+        <button class="btn btn-primary btn-block" type="button" data-close-dialog="install-dialog">Entendi</button>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+      <span class="toast-icon" id="toast-icon">✓</span>
+      <span class="toast-text" id="toast-text"></span>
+      <button class="toast-action" id="toast-action" type="button" hidden>Atualizar</button>
+    </div>
+
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>

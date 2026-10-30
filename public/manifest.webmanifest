@@ -1,0 +1,76 @@
+{
+  "id": "/",
+  "name": "Tempura Yama — Totem de pedidos",
+  "short_name": "Tempura Yama",
+  "description": "Peça seu tempurá no totem, escolha a mesa e acompanhe o preparo em tempo real.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#fff9f0",
+  "theme_color": "#16202b",
+  "categories": ["food", "shopping", "lifestyle"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ver cardápio",
+      "short_name": "Cardápio",
+      "description": "Abrir o cardápio de tempurás",
+      "url": "/#/",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Meu pedido",
+      "short_name": "Pedido",
+      "description": "Acompanhar o último pedido",
+      "url": "/#/pedido",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Painel da cozinha",
+      "short_name": "Cozinha",
+      "description": "Abrir a fila de pedidos da cozinha",
+      "url": "/#/admin",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/mobile-cardapio.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Cardápio de tempurás no celular"
+    },
+    {
+      "src": "/screenshots/desktop-cardapio.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Totem de pedidos no desktop"
+    }
+  ]
+}

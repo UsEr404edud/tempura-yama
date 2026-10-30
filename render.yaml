@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: tempura-yama
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: TZ
+        value: America/Sao_Paulo
+      # Troque este PIN no painel do Render depois do deploy.
+      - key: ADMIN_PIN
+        value: "2468"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: tempura-db
+          property: connectionString
+
+databases:
+  - name: tempura-db
+    databaseName: tempura
+    user: tempura
+    plan: free
+    region: oregon
