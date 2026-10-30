@@ -351,7 +351,7 @@ function updateCartUI() {
   refs.cartCount.dataset.empty = count === 0 ? 'true' : 'false';
   refs.cartBarCount.textContent = String(count);
   refs.cartBarTotal.textContent = formatPrice(total);
-  refs.cartBarWrap.hidden = count === 0;
+  refs.cartBarWrap.hidden = count === 0 || state.route?.name === 'admin';
   refs.topCartButton.setAttribute(
     'aria-label',
     count === 0 ? 'Abrir meu pedido (vazio)' : `Abrir meu pedido, ${count} itens, ${formatPrice(total)}`,
@@ -360,6 +360,10 @@ function updateCartUI() {
   if (refs.cartDialog.open) {
     renderCartStep();
   }
+}
+
+function syncCartBarVisibility() {
+  refs.cartBarWrap.hidden = cartItemCount() === 0 || state.route?.name === 'admin';
 }
 
 function bumpCartBadge() {
@@ -515,11 +519,11 @@ function checkoutFormHtml() {
       <div class="segmented">
         <label class="segment">
           <input type="radio" name="serviceType" value="mesa" ${serviceType === 'mesa' ? 'checked' : ''} />
-          <span>🍽️ Na mesa</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-table"></use></svg> Na mesa</span>
         </label>
         <label class="segment">
           <input type="radio" name="serviceType" value="balcao" ${serviceType === 'balcao' ? 'checked' : ''} />
-          <span>🥡 No balcão</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-bag"></use></svg> No balcão</span>
         </label>
       </div>
     </fieldset>
@@ -689,8 +693,8 @@ function renderItemDialog() {
     <p class="item-detail-desc">${escapeHtml(product.description)}</p>
     <div class="item-detail-meta">
       <span class="meta-pill"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg> ~${product.prepMinutes} min</span>
-      <span class="meta-pill">🔥 frito na hora</span>
-      <span class="meta-pill">🍽️ serve 1</span>
+      <span class="meta-pill"><svg class="icon" aria-hidden="true"><use href="#i-flame"></use></svg> frito na hora</span>
+      <span class="meta-pill"><svg class="icon" aria-hidden="true"><use href="#i-dish"></use></svg> serve 1</span>
     </div>
     <div class="item-order-box">
       <div class="qty-row">
@@ -817,8 +821,8 @@ function trackCardHtml(order) {
 
     <div class="track-eta">
       <span><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg> ${etaText}</span>
-      <span>🍽️ ${serviceLabel}</span>
-      <span>💳 ${paymentLabels[order.paymentMethod] || order.paymentMethod}</span>
+      <span><svg class="icon" aria-hidden="true"><use href="#i-table"></use></svg> ${serviceLabel}</span>
+      <span><svg class="icon" aria-hidden="true"><use href="#i-card"></use></svg> ${paymentLabels[order.paymentMethod] || order.paymentMethod}</span>
       <span class="track-live" data-live-indicator>${isFinal ? 'finalizado' : 'atualiza sozinho'}</span>
     </div>
 
@@ -985,6 +989,8 @@ function handleRoute() {
 
   showView(route.name);
   setActiveNav(route.name === 'menu' ? 'menu' : route.name);
+  document.body.dataset.view = route.name;
+  syncCartBarVisibility();
   updateOfflineBanner();
 
   if (route.name === 'menu') {

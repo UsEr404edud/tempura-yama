@@ -5,7 +5,7 @@
  *  - /api/menu: network-first com fallback para a última resposta salva.
  *  - Demais chamadas de API: sempre rede (pedidos nunca usam cache).
  */
-const VERSION = 'tempura-yama-v1';
+const VERSION = 'tempura-yama-v2';
 const APP_SHELL_CACHE = `${VERSION}-shell`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const MENU_CACHE = `${VERSION}-menu`;
